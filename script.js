@@ -16,6 +16,12 @@ const CLIMATE_FACTOR = {toronto: 1.0};
 
 const BTU_PER_TON = 12000;
 
+const COST_PER_TON = {
+    poor:    {low: 4500, high: 6500},
+    average: {low: 4000, high: 5500},
+    good:    {low: 3500, high: 5000}
+}
+
 function calculateTons() {
     const sqftValue = Number(sqft.value) || 0;
     const windowsValue = Number(windows.value) || 0;
@@ -31,17 +37,19 @@ function calculateTons() {
     return rounded;
 }
 
-function update() {
-    // console.log({
-    //     sqft: sqft.value,
-    //     insulation: insulation.value,
-    //     windows: windows.value,
-    //     cliamte: climate.value,
-    // });
+function calculateCost(tons) {
+    const band = COST_PER_TON[insulation.value];
+    const low = Math.round((tons * band.low) / 100) * 100;
+    const high = Math.round((tons * band.high) / 100) * 100;
+    return {low, high}
+}
 
+function update() {
     const tons = calculateTons();
+    const cost = calculateCost();
+
     tonsOut.textContent = tons;
-    costOut.textContent = '—';
+    costOut.textContent = `$${cost.low.toLocaleString()} – $${cost.high.toLocaleString()} CAD`;
 }
 
 sqft.addEventListener('input', update);
