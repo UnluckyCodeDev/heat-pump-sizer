@@ -1,0 +1,78 @@
+:root {
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --text: #1a1d21;
+    --muted: #5b6470;
+    --accent: #0b6bcb;
+    --border: #d8dee6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    font-size: 1.75rem;
+    color: var(--muted);
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 1rem 0 0.35rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+}
+
+input:focus, select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+#output {
+  margin-top: 1.75rem;
+  padding: 1.25rem;
+  background: #eef4fb;
+  border-radius: 8px;
+  border: 1px solid #c8dcf2;
+}
+
+#output p {
+  margin: 0.25rem 0;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+#output span {
+  font-weight: 700;
+  color: var(--accent);
+}
