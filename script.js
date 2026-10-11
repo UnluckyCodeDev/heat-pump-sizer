@@ -3,7 +3,7 @@ const insulation = document.getElementById('insulation');
 const windows = document.getElementById('windows');
 const climate = document.getElementById('climate');
 
-const tonsOut = document.getElementById('tons')
+const tonsOut = document.getElementById('tons');
 const costOut = document.getElementById('cost');
 
 const BASE_BTU_PER_SQFT = 25;
@@ -46,7 +46,7 @@ function calculateCost(tons) {
 
 function update() {
     const tons = calculateTons();
-    const cost = calculateCost();
+    const cost = calculateCost(tons);
 
     tonsOut.textContent = tons;
     costOut.textContent = `$${cost.low.toLocaleString()} – $${cost.high.toLocaleString()} CAD`;
