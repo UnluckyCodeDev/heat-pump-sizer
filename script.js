@@ -1,3 +1,30 @@
+const themeToggle = document.getElementById('theme-toggle');
+const root = document.documentElement;
+
+function applyTheme(theme) {
+    root.dataset.theme = theme
+    themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙'
+}
+
+function initTheme() {
+    const saved = localStorage.getItem('theme')
+    if (saved === 'light' || saved === 'dark') {
+        applyTheme(saved)
+        return
+    }
+
+    const prefersDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
+}
+
+themeToggle.addEventListener('click', () => {
+    const next  = root.dataset.theme === 'dark' ? 'light' : 'dark'
+    applyTheme(next)
+    localStorage.setItem('theme', next)
+})
+
+initTheme();
+
 const sqft = document.getElementById('sqft');
 const insulation = document.getElementById('insulation');
 const windows = document.getElementById('windows');

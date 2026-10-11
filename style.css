@@ -76,3 +76,45 @@ input:focus, select:focus {
   font-weight: 700;
   color: var(--accent);
 }
+
+[data-theme="dark"] {
+  --bg: #12161b;
+  --card: #1b2129;
+  --text: #e7edf3;
+  --muted: #9aa6b4;
+  --accent: #4aa3ff;
+  --border: #2a333f;
+}
+
+[data-theme="dark"] #output {
+  background: #16283d;
+  border-color: #26456b;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] select {
+  background: #12161b;
+  color: var(--text);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+}
